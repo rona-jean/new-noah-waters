@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Noah Waters</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Noah Waters Logo" class="login-logo">
+            </div>
+            <h2>Welcome Back!</h2>
+            <form class="login-form" method="POST" action="login.php">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="forgot">
+                    <a href="forgot_password.php" class="forgot-link">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-submit">Log In</button>
+                <div class="signup-link">
+                    Don't have an account? <a href="register.html">Sign Up</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!--javascript determine kung tama ba yung login data na ininput mo-->
+    <script>
+    window.onload = () => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('error') === 'invalid') {
+            alert('Invalid fullname or password.');
+        } else if (params.get('error') === 'empty') {
+            alert('Please fill in both fields.');
+        }
+    };
+</script>
+
+</body>
+</html>
